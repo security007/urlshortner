@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>Url Shortner</title>
+
+  <!-- Bootstrap core CSS -->
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+	</head>
+
+		<body>
+		<div class="wr">	
+		<h1>Url Shortner</h1>
+			<div class="search">
+				<form class="search-form" method="POST">
+					<input type="text" placeholder="Url To Short" name="url">
+					<input type="submit" value="Short">
+				</form>
+			</div>
+			{% if hasil %}
+				{% if 'cutt.ly' in hasil %}
+				<div class="result">
+						<p>Result : </p><a href="{{hasil}}" target="_blank" rel="noopener noreferrer">{{hasil}}</a>
+				</div>
+				{% else %}
+				<div class="result">
+						<p>Result : </p><p>{{hasil}}</p>
+				</div>
+				{% endif %}
+			{% endif %}
+		</div>
+
+</body>
+
+</html>
